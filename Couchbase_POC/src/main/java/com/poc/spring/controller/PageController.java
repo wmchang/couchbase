@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.poc.spring.service.CouchbaseService;
 
-@Controller
+@Controller 
 public class PageController {
 	
 	@Autowired
