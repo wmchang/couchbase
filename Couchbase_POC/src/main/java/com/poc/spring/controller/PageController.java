@@ -165,7 +165,7 @@ public class PageController {
 		return "addEventingFunction"; 
 	}
 	
-	@RequestMapping(value="/searchResultPage") 
+	@RequestMapping(value="/searchResultPage")  
 	public String searchResultPage(Model model,HttpServletRequest request) {
 		
 		model.addAttribute("bucketName",request.getParameter("bucketName"));
@@ -182,6 +182,7 @@ public class PageController {
 	
 	@RequestMapping(value="/hey", method=RequestMethod.POST) 
 	public String postMethod2(HttpServletRequest request) { 
+		
 		
 		return "hey post"; 
 	}
