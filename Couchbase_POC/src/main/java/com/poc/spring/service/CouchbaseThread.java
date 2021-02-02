@@ -1,41 +1,36 @@
 package com.poc.spring.service;
 
 
+import java.time.LocalDateTime;
+
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.time.StopWatch;
 
 import com.couchbase.client.java.Bucket;
 import com.couchbase.client.java.document.StringDocument;
 
 public class CouchbaseThread implements Runnable{
-	  int docContentSize;
+	  int docSize;
       int docCount;
       int docIdSize;
       Bucket bucket;
-     
-    public CouchbaseThread(int docCotentSize,int docCount, int docIdSize, Bucket bucket) {
-    	this.docContentSize = docCotentSize;
+      
+    public CouchbaseThread(int docSize,int docCount, int docIdSize, Bucket bucket) {
+    	this.docSize = docSize;
     	this.docCount = docCount;
     	this.docIdSize = docIdSize;
     	this.bucket = bucket;
+    	
     }
-//    public void run() {
-//    	try {
-//    		while (docCount > 0) {
-//    			--docCount;
-//    			String doc = "{\"a\":\"" + RandomStringUtils.randomAlphanumeric(docContentSize - 11) + "\"}";
-//    			StringDocument ddoc = StringDocument.create(RandomStringUtils.randomAlphanumeric(docIdSize), doc);
-//    			bucket.upsert(ddoc);
-//    		}
-//    	}catch(Exception e) {
-//    		
-//    	}
-//    }
-    public void run() {
+    
+    public synchronized void run() {
         try {
         	while (docCount > 0) {
+        		
+        		if(docCount == 1) {
+        			System.out.println("완료");
+        		}
         		--docCount;
-        		StringDocument ddoc = StringDocument.create(RandomStringUtils.randomAlphanumeric(docIdSize), "{\"a\":\"" + RandomStringUtils.randomAlphanumeric(docContentSize) + "\"}");
+        		StringDocument ddoc = StringDocument.create(RandomStringUtils.randomAlphanumeric(docIdSize), "{\"a\":\"" + RandomStringUtils.randomAlphanumeric(docSize) + "\"}");
     			bucket.upsert(ddoc);
         	}
         }catch(Exception e) {

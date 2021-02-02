@@ -26,7 +26,7 @@
 
 <body>
 	<!-- header.jsp -->
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 	

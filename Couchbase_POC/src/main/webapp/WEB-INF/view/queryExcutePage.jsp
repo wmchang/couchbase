@@ -26,7 +26,7 @@
 	
 		$.ajax({
 				type : "post",
-				url : "getQueryResult",
+				url : "<%= request.getContextPath()%>/getQueryResult",
 				data : data,
 				error : function(xhr, status, error) {
 					$('#queryResult').val("에러가 발생하였습니다. 문서의 ID가 중복 혹은 존재하지 않습니다.");
@@ -76,7 +76,7 @@
 <body>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<!-- header.jsp -->
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 	<div class="container">

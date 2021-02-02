@@ -19,7 +19,7 @@
 		var data = $("#conDataForm").serializeArray();
 		$.ajax({
 			type : "post",
-			url : "conData",
+			url : "<%= request.getContextPath()%>/conData",
 			data : data,
 			error : function(xhr, status, error) {
 				alert('입력이 잘못되었습니다.');
@@ -65,7 +65,7 @@
 <body>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<!-- header.jsp -->
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 <div class="container-fluid">

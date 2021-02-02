@@ -65,7 +65,7 @@
 	
 	
 	<!-- header.jsp -->
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 	
@@ -75,7 +75,8 @@
 				<h4> &nbsp; Document <c:if test="${not empty documentList}">  : ${bucketName } Bucket </c:if></h4> 
 					<br>
 					<c:if test="${empty documentList}">
-						<h5> &nbsp; 문서를 확인하려면 서버 연결 및 환경 설정을 해주십시오.</h5>
+						<h5> &nbsp; 문서를 확인하려면</h5>
+						<h5> &nbsp; 서버 연결 및 환경 설정, 인덱스가 생성되어있는지 확인 해주십시오.</h5>
 					</c:if>
 	
 	

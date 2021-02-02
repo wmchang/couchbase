@@ -341,15 +341,14 @@ public class CouchbaseService {
 		int docCount = Integer.parseInt(request.getParameter("docCount"));
 		int threadCount = Integer.parseInt(request.getParameter("threadCount"));
 		
-		if(bucket == null) {
+		if(bucket == null)
 			return null;
-		}
 		
 		Runnable couchTr = new CouchbaseThread(docSize, docCount, docIdSize, bucket);
 		for (int i = 0; i < threadCount; i++) {
-
+		  
 			Thread t1 = new Thread(couchTr);
-			t1.start();
+			t1.start(); 
 		}
 		
 		return "잠시 후 문서들이 생성됩니다.";

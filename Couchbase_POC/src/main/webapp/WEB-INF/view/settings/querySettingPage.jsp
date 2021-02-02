@@ -24,7 +24,7 @@
 		$.ajax({
 		    contentType : "application/x-www-form-urlencoded; charset=utf-8",
 			type : "post",
-			url : "setquerySettings",
+			url : "<%= request.getContextPath()%>/setquerySettings",
 			data : data,
 			error : function(xhr, status, error) {
 				alert(data);
@@ -65,7 +65,7 @@
 <body>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<!-- header.jsp -->
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 	

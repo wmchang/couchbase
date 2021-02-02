@@ -11,7 +11,7 @@
 		
 		$.ajax({
 			type : "post",
-			url : "rebalancing",
+			url : "<%= request.getContextPath()%>/rebalancing",
 			error : function(xhr, status, error) {
 				alert('에러입니다. 정상적인 값을 입력해주세요.');
 			},
@@ -33,7 +33,7 @@
 
 		$.ajax({
 			type : "post",
-			url : "addNode",
+			url : "<%= request.getContextPath()%>/addNode",
 			data : data,
 			error : function(xhr, status, error) {
 				alert('에러입니다. 정상적인 값을 입력해주세요.');
@@ -80,7 +80,7 @@
 
 		$.ajax({
 			type : "post",
-			url : "dropNode",
+			url : "<%= request.getContextPath()%>/dropNode",
 			data : data,
 			error : function(xhr, status, error) {
 				alert('에러입니다. 정상적인 값을 입력해주세요.');
@@ -108,7 +108,7 @@
 <body>
 	<!-- header.jsp -->
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 	

@@ -34,7 +34,7 @@
 
 		$.ajax({
 			type:	"post",
-			url:	"addDocument",
+			url:	"<%= request.getContextPath()%>/addDocument",
 			data:	data,
 			error:	function(xhr, status, error){
 				alert('오류가 발생했습니다. 제대로된 JSON형식인지 확인해주십시오.');

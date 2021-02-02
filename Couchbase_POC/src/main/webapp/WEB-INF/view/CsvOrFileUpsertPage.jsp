@@ -18,7 +18,7 @@ function uploadFile() {
 	var data = new FormData(document.getElementById('fileUpload'));
 	$.ajax({
 		type : "post",
-		url : "fileUpload",
+		url : "<%= request.getContextPath()%>/fileUpload",
 		enctype : "multipart/form-data",
 		data : data,
 		processData : false,
@@ -64,7 +64,7 @@ function inputCheck(){
 <body>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<!-- header.jsp -->
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 	

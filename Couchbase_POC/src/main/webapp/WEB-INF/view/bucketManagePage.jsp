@@ -21,7 +21,7 @@
 	
 		$.ajax({
 			type : "post",
-			url : "createBucket",
+			url : "<%= request.getContextPath()%>/createBucket",
 			data : data,
 			error : function(xhr, status, error) {
 				alert(data.result);
@@ -45,7 +45,7 @@
 	
 		$.ajax({
 			type : "post",
-			url : "dropBucket",
+			url : "<%= request.getContextPath()%>/dropBucket",
 			data : data,
 			error : function(xhr, status, error) {
 				alert('에러입니다. 정상적인 값을 입력해주세요.');
@@ -88,7 +88,7 @@
 <body>
 		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<!-- header.jsp -->
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 	<div class=container-fluid>
@@ -166,7 +166,7 @@
 					</div>
 		
 					<div>
-						# 메모리 할당 <input type="text" name="bucketMemory"
+						# 메모리 할당(MB)<input type="text" name="bucketMemory"
 							onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" />
 					</div>
 		

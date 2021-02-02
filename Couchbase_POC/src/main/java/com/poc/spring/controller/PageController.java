@@ -18,14 +18,9 @@ public class PageController {
 	
 	@RequestMapping("/")
 	public String index() { 
-
 		return "index"; 
 	} 
-	
-	@RequestMapping("/settings")
-	public String settings() {
-		return "settings";
-	}
+
 	
 	@RequestMapping("/nodeManagePage")
 	public String nodeManagePage(Model model) {
@@ -51,9 +46,9 @@ public class PageController {
 		return "CsvOrFileUpsertPage";
 	}
 	
-	@RequestMapping("/header")
+	@RequestMapping("/common/header")
 	public String header() { 
-		return "header"; 
+		return "/common/header"; 
 	} 
 	
 	@RequestMapping(value="/logPage") 
@@ -63,7 +58,7 @@ public class PageController {
 		return "logPage"; 
 	}
 	
-	@RequestMapping(value="/documentPage") 
+	@RequestMapping(value="/documents/documentPage") 
 	public String documentPage(Model model,HttpServletRequest request) { 
 		
 		model.addAttribute("documentList", couchbaseService.getDocumentList(request));
@@ -73,7 +68,7 @@ public class PageController {
 		if(request.getParameter("bucketName")==null || request.getParameter("bucketName") =="") {
 			
 			if(couchbaseService.bucket==null)
-				return "documentPage";
+				return "/documents/documentPage";
 			bucketName = couchbaseService.bucket.name();
 		}
 		else
@@ -81,12 +76,10 @@ public class PageController {
 		
 		model.addAttribute("bucketName",bucketName);
 		
-		return "documentPage"; 
+		return "/documents/documentPage"; 
 	}
 
-	
-	
-	@RequestMapping(value="/documentDetails") 
+	@RequestMapping(value="/documents/documentDetails") 
 	public String documentDetails(Model model, HttpServletRequest request) { 
 		
 		model.addAttribute("documentId", request.getParameter("documentId"));
@@ -99,45 +92,51 @@ public class PageController {
 			bucketName = request.getParameter("bucketName");
 		model.addAttribute("bucketName",bucketName);
 		
-		return "documentDetails"; 
+		return "/documents/documentDetails"; 
 	}
 	
-	@RequestMapping(value="/newDocument") 
+	@RequestMapping(value="/documents/newDocument") 
 	public String newDocument(Model model, HttpServletRequest request) { 
 		
 		model.addAttribute("bucketName", request.getParameter("bucketName"));
-		return "newDocument"; 
-	}
-	
-	@RequestMapping(value="/autoCompactionPage") 
-	public String autoCompactionPage() { 
-		return "autoCompactionPage"; 
+		return "/documents/newDocument"; 
 	}
 	
 	@RequestMapping(value="/queryExcutePage") 
 	public String queryExcutePage() { 
 		return "queryExcutePage"; 
 	}
-	
-	@RequestMapping(value="/emailAlertsPage") 
-	public String emailAlertsPage() { 
-		return "emailAlertsPage"; 
-	}
-	
-	@RequestMapping(value="/sampleBucketPage") 
-	public String sampleBucketPage() { 
-		return "sampleBucketPage"; 
-	}
-	
-	@RequestMapping(value="/ftsPage") 
+
+	@RequestMapping(value="/fts/ftsPage") 
 	public String ftsPage(Model model) { 
 		model.addAttribute("FTIList", couchbaseService.getFTIList());
-		return "ftsPage"; 
+		return "/fts/ftsPage"; 
 	}
 	
-	@RequestMapping(value="/querySettingPage") 
+	
+	@RequestMapping("/settings/setting")
+	public String setting() {
+		return "/settings/setting";
+	}
+	
+	@RequestMapping(value="/settings/autoCompactionPage") 
+	public String autoCompactionPage() { 
+		return "/settings/autoCompactionPage"; 
+	}
+	
+	@RequestMapping(value="/settings/querySettingPage") 
 	public String querySettingPage() { 
-		return "querySettingPage"; 
+		return "/settings/querySettingPage"; 
+	}
+	
+	@RequestMapping(value="/settings/sampleBucketPage") 
+	public String sampleBucketPage() { 
+		return "/settings/sampleBucketPage"; 
+	}
+	
+	@RequestMapping(value="/settings/emailAlertsPage") 
+	public String emailAlertsPage() { 
+		return "/settings/emailAlertsPage"; 
 	}
 	
 	@RequestMapping(value="/addAnalyzerPage") 
@@ -160,19 +159,19 @@ public class PageController {
 		return "addEventingFunction"; 
 	}
 	
-	@RequestMapping(value="/searchResultPage") 
+	@RequestMapping(value="/fts/searchResultPage") 
 	public String searchResultPage(Model model,HttpServletRequest request) {
 		
 		model.addAttribute("bucketName",request.getParameter("bucketName"));
 		model.addAttribute("documentList", couchbaseService.getFTSResult(request));
-		return "searchResultPage"; 
+		return "/fts/searchResultPage"; 
 	}
 	
-	@RequestMapping(value="/addFTIPage") 
+	@RequestMapping(value="/fts/addFTIPage") 
 	public String addFTIPage(Model model) {
 		model.addAttribute("bucketList", couchbaseService.getBucketList());
 		
-		return "addFTIPage"; 
+		return "/fts/addFTIPage"; 
 	}
 	
 	@RequestMapping(value="/hey", method=RequestMethod.POST) 

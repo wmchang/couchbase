@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Couchbase</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/static/css/index.css">
 
 </head>
 <script>
@@ -24,7 +25,7 @@
 		$.ajax({
 		    contentType : "application/x-www-form-urlencoded; charset=utf-8",
 			type : "post",
-			url : "setquerySettings",
+			url : "<%= request.getContextPath()%>/setquerySettings",
 			data : data,
 			error : function(xhr, status, error) {
 				alert(data);
@@ -82,7 +83,7 @@ function addAnalyzer(){
 <body>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<!-- header.jsp -->
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	
 	

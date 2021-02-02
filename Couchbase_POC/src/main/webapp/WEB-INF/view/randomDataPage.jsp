@@ -19,7 +19,7 @@
 
 		$.ajax({
 			type : "post",
-			url : "randomData",
+			url : "<%= request.getContextPath()%>/randomData",
 			data : data,
 			error : function(xhr, status, error) {
 				alert('입력이 잘못되었습니다.');
@@ -46,7 +46,7 @@
 <body>
 	<!-- header.jsp -->
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<c:import url="/WEB-INF/view/header.jsp">
+	<c:import url="/WEB-INF/view/common/header.jsp">
 	</c:import>
 	<div class=container>
 		<div class=row>

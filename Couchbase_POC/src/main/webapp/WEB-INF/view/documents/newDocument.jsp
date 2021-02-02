@@ -5,9 +5,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/static/css/index.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<link rel="stylesheet" type="text/css" href="static/css/index.css">
 
 <style>
 	input[type="text"]{
@@ -35,7 +35,7 @@
 
 		$.ajax({
 			type:	"post",
-			url:	"addDocument",
+			url:	"<%= request.getContextPath()%>/addDocument",
 			data:	data,
 			error:	function(xhr, status, error){
 				alert('오류가 발생했습니다. 제대로된 JSON형식인지 확인해주십시오.');

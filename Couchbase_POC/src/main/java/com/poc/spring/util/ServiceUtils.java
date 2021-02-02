@@ -3,9 +3,12 @@ package com.poc.spring.util;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
 import org.json.simple.JSONArray;
@@ -114,5 +117,22 @@ public class ServiceUtils {
 		
 		logList.add(logMap);
 		return logList;
+	}
+	
+	
+	// 전달된 모든 Request를 HashMap 형태로 변환 
+	public HashMap<String,Object> getRequestToMap(HttpServletRequest request) {
+	    HashMap<String, Object> map = new HashMap<String, Object>();
+	    
+	    Enumeration<String> enumber = request.getParameterNames();
+	    
+	    while (enumber.hasMoreElements()) {
+	        String key = enumber.nextElement().toString();
+	        String value = request.getParameter(key);
+
+	        map.put(key, value);  
+	    }
+	    
+	    return map;
 	}
 }
