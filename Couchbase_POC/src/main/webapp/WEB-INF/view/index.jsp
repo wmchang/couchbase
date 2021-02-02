@@ -56,8 +56,8 @@
 		document.querySelector('#txtHostName').value='localhost';
 		document.querySelector('#portNumber').value='8091';
 		document.querySelector('#txtUserName').value='Administrator';
-		document.getElementById("pwdPassword").value='pass123';
-		document.querySelector('#txtBucketName').value='myApp';
+		document.getElementById("pwdPassword").value='admin123';
+		document.querySelector('#txtBucketName').value='test';
 		connectionData();
 	}
 </script>

@@ -10,21 +10,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.poc.spring.service.CouchbaseService;
 
-@Controller 
+@Controller
 public class PageController {
 	
 	@Autowired
 	CouchbaseService couchbaseService;
 	
 	@RequestMapping("/")
-	public String home() { 
+	public String index() { 
 
 		return "index"; 
-	} 
-	@RequestMapping("/testFile")
-	public String testFile() { 
-		
-		return "testFile"; 
 	} 
 	
 	@RequestMapping("/settings")
@@ -165,7 +160,7 @@ public class PageController {
 		return "addEventingFunction"; 
 	}
 	
-	@RequestMapping(value="/searchResultPage")  
+	@RequestMapping(value="/searchResultPage") 
 	public String searchResultPage(Model model,HttpServletRequest request) {
 		
 		model.addAttribute("bucketName",request.getParameter("bucketName"));
@@ -182,7 +177,6 @@ public class PageController {
 	
 	@RequestMapping(value="/hey", method=RequestMethod.POST) 
 	public String postMethod2(HttpServletRequest request) { 
-		
 		
 		return "hey post"; 
 	}

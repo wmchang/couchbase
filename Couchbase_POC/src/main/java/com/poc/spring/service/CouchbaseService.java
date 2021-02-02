@@ -352,7 +352,7 @@ public class CouchbaseService {
 			t1.start();
 		}
 		
-		return "음";
+		return "잠시 후 문서들이 생성됩니다.";
 	}
 	
 	public Map<String, Object> uploadFile(MultipartHttpServletRequest mRequest) throws Exception {

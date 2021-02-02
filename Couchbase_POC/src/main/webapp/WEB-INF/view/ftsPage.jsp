@@ -45,6 +45,7 @@
 					<c:if test="${empty FTIList}">
 	
 						<h5>Full Text Index를 확인하려면 서버 연결 및 환경 설정을 해주십시오.</h5>
+						<h5>그리고 해당 버킷의 Full Text Index를 생성해주세요.</h5>
 					</c:if>
 	
 	
